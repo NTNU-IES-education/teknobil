@@ -83,7 +83,7 @@ Nå som dere har fått en kort forklaring på funksjonaliteten til Teknobilen, e
 
 ## Montering av Teknobilen
 
-Følg trinnene nedenfor nøye for å montere Teknobilen . Alle bilder nevnt i veiledningen kan finnes i mappen [teknobil2023/-/tree/main/Media/teknobil](https://github.com/PeterhdPham/Teknostart/tree/main/Media/teknobil).
+Følg trinnene nedenfor nøye for å montere Teknobilen . Alle bilder nevnt i veiledningen kan finnes i mappen [Media/teknobil](https://github.com/PeterhdPham/teknobil2023/tree/main/Media/teknobil).
 
 ### Steg 1: Montering av motorer
 
@@ -757,6 +757,7 @@ Lag deres egen modell for objektgjenkjenning. Det vi kaller "object detection", 
 
 For å slippe å skrive egen kode for dette skal vi benytte et open-source program kalt LOBE. I dette programmet kan man legge inn bilder av de objektene man ønsker at maskinen/programmet skal kunne kjenne igjen, og sette merkelapp på dem. Disse bildene vil så LOBE bruke til å trene opp en modell (type program), til den klarer å kjenne igjen alle objektene den har merkelapp til. Denne modellen, i form av en mappe, legger vi inn på vår RPi, og dere vil ha en egenlaget og fungerende gjenkjenningsmodell når dere kjører bilen!
 
+Skulle dere bli usikre så kan dere finne bilder inne på [Media/Lobe](https://github.com/PeterhdPham/teknobil2023/tree/main/Media/Lobe)
 
 ###	Last ned lobe og tren deres første modell
 -	Last ned [lobe](https://www.lobe.ai/) 
@@ -768,7 +769,7 @@ Når dere har lastet ned, kan dere åpne programmet og starte et "New Project".
   <img src="Media/Lobe/newProject.png" height="350" />
 </p>
 
-Importer nedlastet mappe [dataset](https://github.com/PeterhdPham/teknobil2023/dataset) fra GitHub-repositoriet og importer dette inn i Lobe. Når programmet spør hvordan dere ønsker å kategorisere bildene, velger dere "Label using folder name". Når dere har importert bildene ferdig, kan dere trykke på "Train" for å se programmet trene en AI-modell.
+Importer nedlastet mappe [dataset](https://github.com/PeterhdPham/teknobil2023/tree/main/dataset) fra GitHub-repositoriet og importer dette inn i Lobe. Dere kan laste ned ved å trykke på den grønne knappen med "<> Code" og videre download zip. Når programmet spør hvordan dere ønsker å kategorisere bildene, velger dere "Label using folder name". Når dere har importert bildene ferdig, kan dere trykke på "Train" for å se programmet trene en AI-modell.
 
 Dersom den skulle slutte å trene før den har nådd "Correct 100%", kan dere trykke på det første bildet og korrigere den til riktig label.
 
