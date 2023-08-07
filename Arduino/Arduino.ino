@@ -110,11 +110,11 @@ right = analogToDigitalRead(rightTurn);
   if (go && !back) {
     driving(MotorBoth, 0);
     if (right) {
-        speedSet(MotorLeft, turningSpeed);   // Adjust to turn right
-        speedSet(MotorRight, drivingSpeed);  // Maintain driving speed
+        speedSet(MotorLeft, turningSpeed);   
+        speedSet(MotorRight, drivingSpeed);  
     } else if (left) {
-        speedSet(MotorRight, turningSpeed);  // Adjust to turn left
-        speedSet(MotorLeft, drivingSpeed);   // Maintain driving speed
+        speedSet(MotorRight, turningSpeed);  
+        speedSet(MotorLeft, drivingSpeed);   
     } else {
         speedSet(MotorBoth, drivingSpeed);
     }
@@ -124,11 +124,11 @@ right = analogToDigitalRead(rightTurn);
   else if (back && !go) {
     driving(MotorBoth, 1);
     if (right) {
-        speedSet(MotorLeft, turningSpeed);   // Adjust to turn right in reverse
-        speedSet(MotorRight, drivingSpeed);  // Maintain driving speed in reverse
+        speedSet(MotorLeft, turningSpeed);   
+        speedSet(MotorRight, drivingSpeed);  
     } else if (left) {
-        speedSet(MotorRight, turningSpeed);  // Adjust to turn left in reverse
-        speedSet(MotorLeft, drivingSpeed);   // Maintain driving speed in reverse
+        speedSet(MotorRight, turningSpeed);  
+        speedSet(MotorLeft, drivingSpeed);   
     } else {
         speedSet(MotorBoth, drivingSpeed);
     }
@@ -138,10 +138,10 @@ right = analogToDigitalRead(rightTurn);
 else if(right && !go && !back){
     speedSet(MotorBoth, turningSpeed);
     if(!left){
-        digitalWrite(M1, 0);  // Rear right wheel for right turn
-        digitalWrite(M3, 0);  // Adjust front left wheel for right turn
-        digitalWrite(M2, 1);  // Adjust front right wheel for right turn
-        digitalWrite(M4, 1);  // Rear left wheel for right turn
+        digitalWrite(M1, 0);  
+        digitalWrite(M3, 0);  
+        digitalWrite(M2, 1);  
+        digitalWrite(M4, 1);  
         Serial.println("RIGHTTURN");
     }
     else{
@@ -153,10 +153,10 @@ else if(right && !go && !back){
 else if(left && !go && !back){
     speedSet(MotorBoth, turningSpeed);
     if(!right){
-        digitalWrite(M1, 1);  // Rear right wheel for left turn
-        digitalWrite(M3, 1);  // Adjust front left wheel for left turn
-        digitalWrite(M2, 0);  // Adjust front right wheel for left turn
-        digitalWrite(M4, 0);  // Rear left wheel for left turn
+        digitalWrite(M1, 1);  
+        digitalWrite(M3, 1);  
+        digitalWrite(M2, 0);  
+        digitalWrite(M4, 0);  
         Serial.println("LEFTTURN");
     }
     else{
