@@ -25,7 +25,7 @@ int right = 0;
 
 
 //SPEEDS
-int drivingSpeed = 250;
+int drivingSpeed = 150;
 int turningSpeed = 150;
 
 enum Motor {
