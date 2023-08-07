@@ -23,6 +23,7 @@ int back = 0;
 int left = 0;
 int right = 0;
 
+//digital interpretation of analogRead = 1024 / 5V * measured voltage
 int logicHighCutOff = 550;
 int logicLowCutOff = 60;
 
