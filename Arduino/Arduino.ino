@@ -23,6 +23,9 @@ int back = 0;
 int left = 0;
 int right = 0;
 
+//digital interpretation of analogRead = 1024 / 5V * measured voltage
+int logicHighCutOff = 550;
+int logicLowCutOff = 60;
 
 //SPEEDS
 int drivingSpeed = 150;
@@ -98,10 +101,10 @@ void setup() {
 
 void loop() {
 //UPDATING THE BOOLEANS
-go = digitalRead(drive);
-back = digitalRead(reverse);
-left = digitalRead(leftTurn);
-right = digitalRead(rightTurn);
+go = analogToDigitalRead(drive);
+back = analogToDigitalRead(reverse);
+left = analogToDigitalRead(leftTurn);
+right = analogToDigitalRead(rightTurn);
 
 
 /////FORWARD DRIVE/////////////////////////////////////////
@@ -175,4 +178,19 @@ else{
     speedSet(MotorBoth, 0);
     Serial.println("STOP");
 }
+}
+
+
+bool analogToDigitalRead(int pin){
+    if (analogRead(pin)>logicHighCutOff){
+        return true;
+    }
+    else if (analogRead(pin)<logicLowCutOff)
+    {
+        return false;
+    }
+    else{
+        return false;
+    }
+
 }
