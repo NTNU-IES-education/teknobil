@@ -1,14 +1,14 @@
 
 //MOTOR SETUP
-const int E1 = 3; ///<Motor1 Speed - Front Right
-const int E2 = 11;///<Motor2 Speed - Front Left
-const int E3 = 5; ///<Motor3 Speed - Back Right
+const int E1 = 3; ///<Motor1 Speed - Back Right
+const int E2 = 11;///<Motor2 Speed - Front Right
+const int E3 = 5; ///<Motor3 Speed - Front Left
 const int E4 = 6; ///<Motor4 Speed - Back Left
 
-const int M1 = 7; ///<Motor1 Direction - Front Right
-const int M2 = 8;///<Motor2 Direction - Front Left
-const int M3 = 12; ///<Motor3 Direction - Back Right
-const int M4 = 4; ///<Motor4 Direction - Back Left
+const int M1 = 4; ///<Motor1 Direction - Back Right
+const int M2 = 12;///<Motor2 Direction - Front Right
+const int M3 = 8; ///<Motor3 Direction - Front Left
+const int M4 = 7; ///<Motor4 Direction - Back Left
 
 /////////LOGIC/////////////////////////////////
 //INPUT PINS
@@ -29,7 +29,7 @@ int logicLowCutOff = 60;
 
 //SPEEDS
 int drivingSpeed = 150;
-int turningSpeed = 150;
+int turningSpeed = 50;
 
 enum Motor {
   MotorRight,
@@ -39,12 +39,12 @@ enum Motor {
 
 //////DRIVING FUNCTIONS//////////////////////
 void speedSet(Motor motor, int Speed) {
-    if(motor == MotorRight){
+    if(motor == MotorLeft){
         analogWrite(E1, Speed);
-        analogWrite(E3, Speed);
-    }
-    else if(motor == MotorLeft){
         analogWrite(E2, Speed);
+    }
+    else if(motor == MotorRight){
+        analogWrite(E3, Speed);
         analogWrite(E4, Speed);
     }
     else if(motor == MotorBoth){
@@ -58,19 +58,18 @@ void speedSet(Motor motor, int Speed) {
 //DRIVING FUNCTION
 void driving(Motor motor, bool Direction) {
     if (motor == MotorBoth){
-        Direction = !Direction;
-        digitalWrite(M1, Direction);
+        digitalWrite(M1, !Direction);  // Invert the direction for rear wheels
         digitalWrite(M2, Direction);
         digitalWrite(M3, Direction);
-        digitalWrite(M4, Direction);
+        digitalWrite(M4, !Direction);  // Invert the direction for rear wheels
     }
     else if (motor == MotorRight){
-        digitalWrite(M1, Direction);
-        digitalWrite(M3, Direction);
+        digitalWrite(M1, !Direction);  // Invert the direction for rear right wheel
+        digitalWrite(M2, Direction);
     }
     else if (motor == MotorLeft){
-        digitalWrite(M2, Direction);
-        digitalWrite(M4, Direction);
+        digitalWrite(M3, Direction);
+        digitalWrite(M4, !Direction);  // Invert the direction for rear left wheel
     }
 }
 
@@ -107,52 +106,46 @@ left = analogToDigitalRead(leftTurn);
 right = analogToDigitalRead(rightTurn);
 
 
-/////FORWARD DRIVE/////////////////////////////////////////
-if (go && !back) {  
-    driving(MotorBoth, 0);  
+ /////FORWARD DRIVE/////////////////////////////////////////
+  if (go && !back) {
+    driving(MotorBoth, 0);
     if (right) {
-        speedSet(MotorRight, turningSpeed);
+        speedSet(MotorLeft, turningSpeed);   // Adjust to turn right
+        speedSet(MotorRight, drivingSpeed);  // Maintain driving speed
     } else if (left) {
-        speedSet(MotorLeft, turningSpeed);
+        speedSet(MotorRight, turningSpeed);  // Adjust to turn left
+        speedSet(MotorLeft, drivingSpeed);   // Maintain driving speed
     } else {
         speedSet(MotorBoth, drivingSpeed);
     }
-}
+  }
 
-
-//REVERSE
-else if(back && !go){
+    //REVERSE
+  else if (back && !go) {
     driving(MotorBoth, 1);
-    //REVERSE WITH RIGHTTURN
-    if(right){
-    speedSet(MotorRight,turningSpeed);
+    if (right) {
+        speedSet(MotorLeft, turningSpeed);   // Adjust to turn right in reverse
+        speedSet(MotorRight, drivingSpeed);  // Maintain driving speed in reverse
+    } else if (left) {
+        speedSet(MotorRight, turningSpeed);  // Adjust to turn left in reverse
+        speedSet(MotorLeft, drivingSpeed);   // Maintain driving speed in reverse
+    } else {
+        speedSet(MotorBoth, drivingSpeed);
     }
-    //REVERSE WITH LEFTTURN
-    else if(left){
-    speedSet(MotorLeft, turningSpeed);
-    }
-    else{
-    speedSet(MotorBoth, drivingSpeed);      
-    Serial.println("REVERSE");
-    }
-}
-
-
+  }
 
 //RIGHTTURN
 else if(right && !go && !back){
     speedSet(MotorBoth, turningSpeed);
     if(!left){
-    digitalWrite(M1,1);
-    digitalWrite(M3,1);
-    digitalWrite(M2,0);
-    digitalWrite(M4,0);
-    Serial.println("RIGHTTURN");
+        digitalWrite(M1, 0);  // Rear right wheel for right turn
+        digitalWrite(M3, 0);  // Adjust front left wheel for right turn
+        digitalWrite(M2, 1);  // Adjust front right wheel for right turn
+        digitalWrite(M4, 1);  // Rear left wheel for right turn
+        Serial.println("RIGHTTURN");
     }
-    
-    //IF YOU PRESS BOTH LEFT AND RIGHT
     else{
-    driving(MotorBoth, 0);
+        driving(MotorBoth, 0);
     }
 }
 
@@ -160,24 +153,22 @@ else if(right && !go && !back){
 else if(left && !go && !back){
     speedSet(MotorBoth, turningSpeed);
     if(!right){
-    digitalWrite(M1,0);
-    digitalWrite(M3,0);
-    digitalWrite(M2,1);
-    digitalWrite(M4,1);
-    Serial.println("LEFTTURN");
+        digitalWrite(M1, 1);  // Rear right wheel for left turn
+        digitalWrite(M3, 1);  // Adjust front left wheel for left turn
+        digitalWrite(M2, 0);  // Adjust front right wheel for left turn
+        digitalWrite(M4, 0);  // Rear left wheel for left turn
+        Serial.println("LEFTTURN");
     }
-
-//IF YOU PRESS BOTH LEFT AND RIGHT
     else{
-    driving(MotorBoth, 0);
+        driving(MotorBoth, 0);
     }
 }
 
-//IF YOU DON'T PRESS ANYTHNIG
-else{
-    speedSet(MotorBoth, 0);
-    Serial.println("STOP");
-}
+    //IF YOU DON'T PRESS ANYTHING
+    else{
+        speedSet(MotorBoth, 0);
+        Serial.println("STOP");
+    }
 }
 
 
