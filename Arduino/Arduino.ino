@@ -1,3 +1,4 @@
+
 //MOTOR SETUP
 const int E1 = 3; ///<Motor1 Speed - Front Right
 const int E2 = 11;///<Motor2 Speed - Front Left
@@ -24,8 +25,8 @@ int right = 0;
 
 
 //SPEEDS
-int drivingSpeed = 150;
-int turningSpeed = 50;
+int drivingSpeed = 250;
+int turningSpeed = 150;
 
 enum Motor {
   MotorRight,
