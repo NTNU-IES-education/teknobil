@@ -9,6 +9,10 @@ from core import WebMethod
 import RPi.GPIO as GPIO
 
 
+# Only needed for expansions
+import threading
+import time
+
 
 #set GPIO numbering mode and define output pins
 GPIO.setmode(GPIO.BCM)
@@ -19,11 +23,36 @@ GPIO.setup(13, GPIO.OUT) #LEFT
 GPIO.setup(6, GPIO.OUT) #RIGHT
 
 
+# ------------------------
+"""
+# Buzzer setup
+BUZZER = 12
+GPIO.setup(BUZZER, GPIO.OUT)
+buzzer = GPIO.PWM(BUZZER, 1000) # Set frequency to 1 kHz
+"""
+# ------------------------
+
+
 
 UP = False
 DOWN = False
 RIGHT = False
 LEFT = False
+
+
+# ------------------------
+"""
+# Buzzer functionality
+def honk():
+    print('Tut tut')
+    buzzer.start(10) # Set dutycycle to 10
+    time.sleep(1)
+    buzzer.stop()
+
+def create_thread():
+    return threading.Thread(target=honk)
+"""
+# ------------------------
 
 #FORWARD DRIVING LIGHTS (WHITE)
 GPIO.setup(20,GPIO.OUT)
@@ -60,6 +89,15 @@ def control_motors():
                     LEFT = False
                 if keys.state('K_SPACE'):
                     print('Compare')
+
+                # ------------------------
+                """
+                # Buzz
+                if keys.state('K_BACKSPACE'):
+                    if not threading.Thread().is_alive():
+                        create_thread().start()
+                """
+                # ------------------------
 
                     
                 
