@@ -828,7 +828,7 @@ Sørg for at alle parametere er like som på bildet over!
 ### Ta bilder
 1.	Start programvaren med å skrive kommandoen 
 ```bash
-/.start.sh
+./start.sh
 ```
 
 2.	Åpne en ny fane i nettleseren og bruk IP-adressen til RPi-en din som nettstedsøk. Hvis dere ikke kjenner til IP-adressen fra før, kan dere finne den ved å bruke følgende kommando:
