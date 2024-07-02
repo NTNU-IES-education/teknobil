@@ -605,14 +605,12 @@ bytt ut <hostname> med det dere satte i Raspberry Pi imager F.eks:
    ssh pi@elsys1.local 
    ```
 
+Når den spør om dere ønsker å koble til, skriv “yes” og trykk enter.
+
 Om dere ikke får koblet til så se på feilsøkingstipsene nedenfor:
-* Prøv å bruke IP-addressen til PIen istedenfor <hostname>. Den finner dere vanligvis i nettverksdelingsinnstillingene på mobilen og er på formatet <xxx.xxx.xxx.xxx>, hvor x er tall.
+* Prøv å bruke IPv4-addressen til PIen istedenfor ```<hostname>.local```. Den finner dere vanligvis i nettverksdelingsinnstillingene på mobilen og har på formatet ```<xxx.xxx.xxx.xxx>```, hvor x er tall. Kommandoen blir da f.eks. ```ssh pi@192.168.195.162```.
 * Det kan ta litt tid før Pi-en starter, så om den ikke finner Pi-en med en gang, vent noen minutter og prøv igjen. Dere kan også trykke piltast opp på tastaturet for å bruke den siste kommandoen dere brukte.
 * Dobbeltsjekk også at det delte nettet opererer på 2.4GHz.
-
-NB: 
-
-Når den spør om dere ønsker å koble til, skriv “yes” og trykk enter.
 
 Når dere skriver inn passordet, vil dere merke at det ikke kommer opp noe "***". Dette er normalt, bare skriv passordet som vanlig.
 
