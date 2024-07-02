@@ -1,7 +1,7 @@
-# Teknostart 2023
+# Teknostart - elektronisk systemdesign og innovasjon
 
-I denne teknostarten skal dere, i en gruppe, lage en fjernstyrt bil. Dere skal få jobbe med Raspberry Pi, Arduino Uno og LOBE. Det er ikke forventet at dere skal kunne noe om dette fra før eller vite hva det er; teknostart vil fungere som en introduksjon til dette. Dere skal også bygge bilen, koble den opp, og få alt til å fungere sammen.
-I år er det tre konkurranser. Dere kan vinne ved å være raskest rundt en definert bane, ha den beste objektgjenkjenningen, eller ved å ha den vakreste/kuleste bilen. Bruk kreativiteten, maling og tusjer til å skreddersy bilen slik dere ønsker.
+I denne teknostarten skal dere, i en gruppe, lage en fjernstyrt bil. Dere skal få jobbe med Raspberry Pi, Arduino Uno og maskinlæringsverktøyet LOBE. Det er ikke forventet at dere skal kunne noe om dette fra før eller vite hva det er; teknostart vil fungere som en introduksjon til dette. Dere skal også bygge bilen, koble den opp, og få alt til å fungere sammen. Det vanker også premie for den vakreste/kuleste bilen, så bruk kreativiteten, maling og tusjer til å skreddersy bilen slik dere ønsker.
+
 Dere bør dele dere opp og jobbe på hver deres del. Dere har god tid på oppgaven, så det går fint å jobbe i par og ta seg tid til å prøve å forstå eller finne ut mer om noe dersom dere synes det er interessant. En viktig del av teknostart er å samarbeide godt og fordele arbeidsoppgaver. Vi foreslår at dere fordeler dere på disse hovedoppgavene:
 
 1.	Den som ønsker en utfordring, kan jobbe med Raspberry Pien. Her er det viktig å holde tungen rett i munnen og følge oppskriften nøye for at ting skal fungere. Får dere problemer her, ta kontakt med en student assistent. 
@@ -46,7 +46,7 @@ Komponenten på bildet under er en spenningsregulatoren. Denne er viktig for Pi-
 
 ## Arduino Uno
 
-Arduino Uno er et lite utviklingskort som egner seg godt som første mikrokontroller å lære seg å bruke. For å programmere denne brukes Arduino IDE, med et eget språk som er en variant av C++. [Her](https://store.arduino.cc/products/arduino-uno-rev3) finner dere mer spesifikasjoner om kortet dere har blitt utdelt.
+Arduino Uno er et lite utviklingskort som egner seg godt som første mikrokontroller å lære seg å bruke. For å programmere denne brukes Arduino IDE, med et eget språk som er en variant av C++. [Her](https://store.arduino.cc/pages/uno-r4) finner dere mer spesifikasjoner om kortet dere har blitt utdelt.
 
 <p align="center">
   <img src="Media/teknobil/ArduinoUno.jpg" height="300" />
@@ -222,7 +222,7 @@ Hvis dere har koblet riktig, skal det se ut som vist under.
   <img src="Media/teknobil/19.jpg" height="300" />
 </p>
 
-### Steg 10: Oppkobling av LEDS
+### Steg 10: Oppkobling av lysdioder (LEDs)
 
 
 Hver LED har to ben; en kort (katode) og en lang (anode), dette tilsvarer LED-ens positive og negative side som vist i illustrasjonen under.
@@ -338,12 +338,12 @@ Last ned Arduino IDE
 ### Last inn koden til Arduinoen
 Utstyr:
 1. PC
-2. Usb-A til usb-b kabel
+2. USB-A til USB-C-kabel
 3. Arduino Uno
 
 Oppsett:
-1. Koble Arduino-kortet til PCen din med en USB-B kabel
-2. Sørg for at programvaren er satt opp for riktig type Arduino-kort, i dette tilfellet Arduino Uno
+1. Koble Arduino-kortet til PCen din med en USB-C kabel
+2. Sørg for at programvaren er satt opp for riktig type Arduino-kort, i dette tilfellet Arduino Uno R4 (programvaren spør dere om å laste ned den nødvendige ekstrapakken)
     * Gå inn på «Verktøy»/«Tools»
     * Velg riktig kort og port (porten refererer til hvilken inngang/utgang dere bruker på PCen. Det kan oppstå en feilmelding hvis feil port er valgt)
 
@@ -536,7 +536,7 @@ NB: Hvis motoren går i feil retning når dere tester den fullstendige oppkoblin
 
 ## Raspberry Pi oppsett
 
-I dette prosjektet bruker vi modellen Raspberry Pi 3B+. Denne brukes til å lage en webserver som streamer live-video fra et Raspberry-kamera, og hvor dere, mens dere er i nettleseren, kan bruke piltastene til å styre bilen. Dette gjøres ved at dere sender informasjon om tastetrykkene til Pi-en, som igjen sender informasjon til Arduinoen, som er et mikrokontrollerkort. I dagligtale er det, i et slikt prosjekt, vanlig å referere til Pi-en som hjernen, som bruker Arduino som slave. Som alle andre datamaskiner har også denne et operativsystem, eller OS. Raspberry Pi sitt OS ligger på et SD-kort, som er mulig å ta ut og inn. Dette SD-kortet fungerer også som maskinens harddisk. Derfor starter prosessen med å klargjøre Raspberry Pi-en med å sette opp SD-kortet.
+I dette prosjektet bruker vi modellen Raspberry Pi 3B+. Denne brukes til å lage en webserver som streamer live-video fra et Raspberry-kamera, og hvor dere, mens dere er i nettleseren, kan bruke piltastene til å styre bilen. Dette gjøres ved at dere sender informasjon om tastetrykkene til Pi-en, som igjen sender informasjon til Arduinoen, som er et mikrokontrollerkort. I dagligtale er det, i et slikt prosjekt, vanlig å referere til Pi-en som hjernen som kontrollerer blant annet Arduinoen. Som alle andre datamaskiner har også denne et operativsystem, eller OS. Raspberry Pi sitt OS ligger på et SD-kort, som er mulig å ta ut og inn. Dette SD-kortet fungerer også som maskinens harddisk. Derfor starter prosessen med å klargjøre Raspberry Pi-en med å sette opp SD-kortet.
 
 ### Sette opp SD-kortet
 
@@ -553,7 +553,7 @@ Slik går dere frem for å sette opp SD-kortet:
 1. Last ned Raspberry Pi Imager
 2. Sett inn SD-kortet inn i SD-kortleseren
 3. Åpne Raspberry Pi Imager
-4. Klikk på «CHOOSE OS» og velg: «Raspberry Pi OS (32-bit)»
+4. Klikk på «CHOOSE OS» og velg: «Raspberry Pi OS (Legacy, 32-bit)»
 5. Deretter «CHOOSE STORAGE», og velg det SD-kortet dere satte inn.
 6. Gå inn på innstillinger:
 
@@ -566,7 +566,8 @@ Slik går dere frem for å sette opp SD-kortet:
       - Username: pi, NB: viktig at dere kun skriver “pi”
       - Password: "123", eller noe annet dere lett kan huske
    4. Configure wireless LAN
-      - NB: SSID og Passord må være identisk med det nettverket dere kan dele fra mobilen
+      - Dere bruker her delt nett fra mobilene deres. Vi anbefaler at man bruker en Android-telefon.
+      - SSID og Passord må være identisk med det nettverket dere deler fra den valgte mobilen.
    5. Enable Set locale settings:
       - Time zone: Europe/Oslo
       - Keyboard layout: no
@@ -580,26 +581,17 @@ Slik går dere frem for å sette opp SD-kortet:
 
 ### Sette opp Raspberry Pi headless
 Som nevnt er Raspberry Pi en datamaskin, men som dere kanskje ser er det ikke akkurat en bærbar PC. Det fine med Raspberry Pi er at den kan settes opp og styres uten skjerm, det vil si at man verken trenger en ekstern skjerm eller tastatur. For å bruke den uten skjerm tar vi i bruk Secure Shell Protocol, også kjent som SSH, som dere aktiverte i “Advanced options”. For å koble til Pi-en fra PC-en med SSH, må begge enhetene være koblet til samme nettverk. Derfor skal vi dele nett fra mobilen, og koble oss til dette nettet med både Pi og PC.
-
-Tips til terminal:
-- Grunnleggende terminalkommandoer for navigering:
-  - **`cd <directory>`**: Bytter katalog. Denne kommandoen lar deg navigere mellom forskjellige kataloger (mapper) på datamaskinen din. For eksempel, `cd Documents` vil navigere til Documents-mappen fra din nåværende lokasjon.
-  - **`ls`**: List opp innholdet i den nåværende katalogen. Denne kommandoen viser alle filer og mapper i den nåværende katalogen.
-  - **`cd ..`**: Gå opp ett nivå i katalogstrukturen. Dette tar deg tilbake til mappen som inneholder den nåværende mappen.
-
-
-
 Utstyr:
 - PC
 - Raspberry Pi med ferdig installert SD-kort
-- Delt nett
+- Delt nett fra mobil
 
 #### SSH inn til Raspberry Pi
 
 1. Først må Pi-en være koblet til strøm. Dette gjøres enten ved oppkobling i bilen eller ved mikro-USB-porten på kortet.
 2. Åpne en terminal på laptopen:
    - For Windows kan dere søke opp:
-     - Terminal (🪟 + x)
+     - Terminal (win + x)
      - Windows PowerShell
      - Command Promt
    - For Mac kan dere søke opp:
@@ -612,7 +604,13 @@ bytt ut <hostname> med det dere satte i Raspberry Pi imager F.eks:
    ```bash 
    ssh pi@elsys1.local 
    ```
-NB: Det kan ta litt tid før Pi-en starter, så om den ikke finner Pi-en med en gang, vent noen minutter og prøv igjen. Dere kan også trykke piltast opp på tastaturet for å bruke den siste kommandoen dere brukte. Dobbeltsjekk også at det delte nettet opererer på 2.4GHz.
+
+Om dere ikke får koblet til så se på feilsøkingstipsene nedenfor:
+* Prøv å bruke IP-addressen til PIen istedenfor <hostname>. Den finner dere vanligvis i nettverksdelingsinnstillingene på mobilen og er på formatet <xxx.xxx.xxx.xxx>, hvor x er tall.
+* Det kan ta litt tid før Pi-en starter, så om den ikke finner Pi-en med en gang, vent noen minutter og prøv igjen. Dere kan også trykke piltast opp på tastaturet for å bruke den siste kommandoen dere brukte.
+* Dobbeltsjekk også at det delte nettet opererer på 2.4GHz.
+
+NB: 
 
 Når den spør om dere ønsker å koble til, skriv “yes” og trykk enter.
 
@@ -621,18 +619,21 @@ Når dere skriver inn passordet, vil dere merke at det ikke kommer opp noe "***"
 Dere vil få opp noe liknende dette:
 ![SSH into Raspberry Pi](Media/rpi/03SSH.png)
 
-Gratulerer, dere har nå logget på Raspberry Pi via SSH. Kommandoene dere nå skriver utføres inne på selve Raspberry Pi.
+Gratulerer, dere har nå logget på Raspberry Pi via SSH. Kommandoene dere nå skriver utføres på terminalen inne på selve Raspberry Pi.
+
+Tips til å skrive i terminalen:
+- Grunnleggende terminalkommandoer for navigering:
+  - **`cd <directory>`**: Bytter katalog. Denne kommandoen lar deg navigere mellom forskjellige kataloger (mapper) på datamaskinen din. For eksempel, `cd Documents` vil navigere til Documents-mappen fra din nåværende lokasjon.
+  - **`ls`**: List opp innholdet i den nåværende katalogen. Denne kommandoen viser alle filer og mapper i den nåværende katalogen.
+  - **`cd ..`**: Gå opp ett nivå i katalogstrukturen. Dette tar deg tilbake til mappen som inneholder den nåværende mappen.
 
 #### Enable camera
 Aktiver kameraet på RPI-en med kommandoen:
 
 ```bash
-sudo raspi-config
+sudo raspi-config noint do_legacy 0
 ```
-
-- Naviger til "Interface Options", deretter "Legacy Camera"
-  - Velg "Yes" til å enable kamera
-  - Start Pi-en på nytt med
+Start deretter PIen på nytt med kommandoen: 
 ```bash
 sudo reboot now
 ```
@@ -648,13 +649,13 @@ sudo apt-get update && sudo apt-get dist-upgrade -y
 2. Dere kan nå klone git-repositoriet som inneholder koden som Raspberry Pi-en skal kjøre, med kommandoen:
 
 ```bash
-git clone https://github.com/PeterhdPham/teknobil2023.git
+git clone https://github.com/NTNU-IES-education/teknobil.git
 ```
 
 3. Deretter kan dere navigere til "Teknostart"-mappen med kommandoen:
    
 ```bash 
-cd teknobil2023/
+cd teknobil/
 ```
 <p>
   <img src="Media\rpi\cd.png" height="50" />
