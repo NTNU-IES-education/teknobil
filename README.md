@@ -33,7 +33,7 @@ Settet dere har fått utdelt inneholder komponenter som sikkert er nye for mange
 Et breadboard gir en rask måte å koble opp kretser for prototyping uten å måtte lodde eller lage kabler. Hver rad i breadboardet er koblet sammen slik at alt som kobles til samme rad er koblet til samme spenningen.
 
 <p align="center">
-  <img src="Media/teknobil/Breadboard.jpg" height="300" />
+  <img src="Media/teknobil/Breadboard.jpg" height="300" />![alt text](image.png)
 </p>
 
 ## Spenningsregulator
@@ -550,32 +550,33 @@ SD-kortene dere har fått utdelt inneholder ingen informasjon dere kan bruke. De
 
 Slik går dere frem for å sette opp SD-kortet:
 
-1. Last ned Raspberry Pi Imager
+1. Last ned Raspberry Pi Imager ([lenke](https://www.raspberrypi.com/software/))
 2. Sett inn SD-kortet inn i SD-kortleseren
 3. Åpne Raspberry Pi Imager
-4. Klikk på «CHOOSE OS» og velg: «Raspberry Pi OS (Legacy, 32-bit)»
-5. Deretter «CHOOSE STORAGE», og velg det SD-kortet dere satte inn.
-6. Gå inn på innstillinger:
-
+4. Klikk på "CHOOSE DEVICE" og velg "Raspberry Pi 3"
+5. Klikk på "CHOOSE OS" og velg: "Raspberry Pi OS (Legacy, 32-bit)"
+6. Deretter "CHOOSE STORAGE", og velg det SD-kortet dere satte inn. Menyen skal se omtrent slik ut etter dette:
    ![Raspberry Pi Imager](Media/rpi/01Pi-imager.png)
+7. Trykk deretter på "NEXT" og det skal komme et "Use OS customization" sprettoppvindu. Velg så "EDIT SETTINGS" og sett opp følgende innstillinger:
 
    1. Sett hostname til «elsys"gruppenummer"», eksempel: elsys14
-   2. Enable SSH
-      - Use password authentication
-   3. Set username and password
+   2. Set username and password
       - Username: pi, NB: viktig at dere kun skriver “pi”
       - Password: "123", eller noe annet dere lett kan huske
-   4. Configure wireless LAN
+   3. Configure wireless LAN
       - Dere bruker her delt nett fra mobilene deres. Vi anbefaler at man bruker en Android-telefon.
       - SSID og Passord må være identisk med det nettverket dere deler fra den valgte mobilen.
-   5. Enable Set locale settings:
+      - Skriv korrekt! Om ikke må man kanskje sette oppe alt på nytt igjen.
+   4. Enable Set locale settings:
       - Time zone: Europe/Oslo
-      - Keyboard layout: no
-   6. Når dere er ferdig skal dere se noe tilsvarende:
+      - Keyboard layout: NO
+   5. Aktiver SSH under "SERVICES"-fanen
+      - Velg "Use password authentication"
+   5. Når dere er ferdig skal dere se noe tilsvarende:
 
-   ![Raspberry Pi Imager settings](Media/rpi/02settings.png)
+   ![Raspberry Pi Imager settings](Media/rpi/02settings.png) | ![Raspberry Pi Imager settings](Media/rpi/02settingssh.png)
 
-7. Lagre innstillingene, og trykk på write. Dette kan ta litt tid.
+7. Lagre innstillingene med "SAVE", og trykk på "YES" i sprettoppvinduet fra tidligere og deretter "YES" i den påfølgende advarselen. Deretter begynner skrivingen, som kan ta litt tid.
 8. Når SD-kortet er ferdig skrevet vil dere få en beskjed om at det er trygt å ta det ut av maskinen. Ta det ut, og sett inn i Pi-en.
 
 
