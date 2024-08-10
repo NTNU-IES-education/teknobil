@@ -62,7 +62,7 @@ Motordriveren som dere har fått utdelt er et såkalt shield for Arduino Uno. De
 
 ## Raspberry Pi
 
-Raspberry Pi er en lavkostnads, kredittkort-størrelse datamaskin, der alt dere trenger for å bruke som er en hvilken som helst annen PC eller en monitor/TV, et tastatur, og en mus. **PS! den er kanskje lavkostnad, men det er low suppy. Don't destroy plis😭** Den klarer alt som er å forvente av en PC, i alt fra websurfing til å spille av høydefinerte videoer, spill og mye mer. Videre kan Raspberry Pi samhandle med resten av verden, og har blitt brukt til en rekke digitale skaper-prosjekter. Disse prosjektene tar på alt fra musikkskaping og værstasjoner til selvkjørende droner og fuglehus som poster på Instagram. I dette prosjektet brukes modellen Raspberry Pi 3B+. [Her](https://www.raspberrypi.com/documentation/) finner dere mer dokumentasjon om Raspberry Pi.
+Raspberry Pi er en lavkostnads, kredittkort-størrelse datamaskin, der alt dere trenger for å bruke som er en hvilken som helst annen PC eller en monitor/TV, et tastatur, og en mus. **PS! den er kanskje lavkostnad, men det er low supply. Don't destroy plis😭** Den klarer alt som er å forvente av en PC, i alt fra websurfing til å spille av høydefinerte videoer, spill og mye mer. Videre kan Raspberry Pi samhandle med resten av verden, og har blitt brukt til en rekke digitale skaper-prosjekter. Disse prosjektene tar på alt fra musikkskaping og værstasjoner til selvkjørende droner og fuglehus som poster på Instagram. I dette prosjektet brukes modellen Raspberry Pi 3B+. [Her](https://www.raspberrypi.com/documentation/) finner dere mer dokumentasjon om Raspberry Pi.
 
 <p align="center">
   <img src="Media/teknobil/RaspberryPi3.jpg" height="300" />
@@ -581,7 +581,7 @@ Slik går dere frem for å sette opp SD-kortet:
 
 
 ### Sette opp Raspberry Pi headless
-Som nevnt er Raspberry Pi en datamaskin, men som dere kanskje ser er det ikke akkurat en bærbar PC. Det fine med Raspberry Pi er at den kan settes opp og styres uten skjerm, det vil si at man verken trenger en ekstern skjerm eller tastatur. For å bruke den uten skjerm tar vi i bruk Secure Shell Protocol, også kjent som SSH, som dere aktiverte i “Advanced options”. For å koble til Pi-en fra PC-en med SSH, må begge enhetene være koblet til samme nettverk. Derfor skal vi koble PCen som brukes til nettverksruteren (dette nettverket skal kun benyttes av den som jobber med Rasberry pi, hvis ikke kan nettverket bli overbelastet. Dersom dere bruker delt nett fra mobilen skal også PCen kobles til det delte nettverket.
+Som nevnt er Raspberry Pi en datamaskin, men som dere kanskje ser er det ikke akkurat en bærbar PC. Det fine med Raspberry Pi er at den kan settes opp og styres uten skjerm, det vil si at man verken trenger en ekstern skjerm eller tastatur. For å bruke den uten skjerm tar vi i bruk Secure Shell Protocol, også kjent som SSH, som dere aktiverte i “Advanced options”. For å koble til Pi-en fra PC-en med SSH, må begge enhetene være koblet til samme nettverk. Derfor skal vi koble PCen som brukes til nettverksruteren (dette nettverket skal kun benyttes av den som jobber med Rasberry pi, hvis ikke kan nettverket bli overbelastet). Dersom dere bruker delt nett fra mobilen skal også PCen kobles til det delte nettverket.
 Utstyr:
 - PC
 - Raspberry Pi med ferdig installert SD-kort
