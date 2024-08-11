@@ -355,7 +355,7 @@ def start_http_server(video_resolution, fps, server_port, index_file,
                 time.sleep(0.1)
                 with image_lock:
                     # Change from "pi" to "teknostart"
-                    camera.capture('/home/pi/teknobil2023/projectfolder/image.jpg', use_video_port=True, splitter_port=2)
+                    camera.capture('/home/pi/teknobil/projectfolder/image.jpg', use_video_port=True, splitter_port=2)
                     time.sleep(0.01)  # add some delay
                 
         finally:
