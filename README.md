@@ -38,7 +38,7 @@ Et breadboard gir en rask måte å koble opp kretser for prototyping uten å må
 
 ## Spenningsregulator
 
-Komponenten på bildet under er en spenningsregulatoren. Denne er viktig for Pi-en tåler ikke høyere spenning enn 5 V, men batterispenningen er på over 7 V. Denne har da til formål å senke spenningen slik at både Arduino og Raspberry Pi kan drives fra samme kilde. [Her](https://wiki.dfrobot.com/Power_Module__SKU_DFR0205_) er lenke til dokumentasjon.
+Komponenten på bildet under er en spenningsregulatoren. Denne er viktig fordi Pi-en tåler ikke høyere spenning enn 5 V, men batterispenningen er på over 7 V. Denne har da til formål å senke spenningen slik at både Arduino og Raspberry Pi kan drives fra samme kilde. [Her](https://wiki.dfrobot.com/Power_Module__SKU_DFR0205_) er lenke til dokumentasjon.
 
 <p align="center">
   <img src="Media/teknobil/Powermodule.jpg" height="300" />
