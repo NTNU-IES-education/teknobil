@@ -207,7 +207,7 @@ For å koble sammen Raspberry Pi og Arduino Uno, må dere merke deg at nummeret 
           
 | Arduino | Raspberry Pi |
 |---------|--------------|
-| A3      | GPIO 21      |
+| A3      | GPIO 6       |
 | A2      | GPIO 13      |
 | A1      | GPIO 19      |
 | A0      | GPIO 26      |
@@ -612,6 +612,7 @@ Om dere ikke får koblet til så se på feilsøkingstipsene nedenfor:
 * Prøv å bruke IPv4-addressen til PIen istedenfor ```<hostname>.local```. Den finner dere vanligvis i nettverksdelingsinnstillingene på mobilen og har på formatet ```<xxx.xxx.xxx.xxx>```, hvor x er tall. Kommandoen blir da f.eks. ```ssh pi@192.168.195.162```.
 * Det kan ta litt tid før Pi-en starter, så om den ikke finner Pi-en med en gang, vent noen minutter og prøv igjen. Dere kan også trykke piltast opp på tastaturet for å bruke den siste kommandoen dere brukte.
 * Dobbeltsjekk også at det delte nettet opererer på 2.4GHz.
+* Hvis dere har koblet dere av internettet og på et annet en eller annen gang i løpet av dagen så kan det hende programet ikke gjenkjenner igjen ip-adressen. Ta å skriv på SD kortet igjen, men denne gangen endre brukernavnet til noe annet enn gruppenavnet. Brukernavnene kan dermed ikke være den samme som noen nadre som er brukt før.
 
 Når dere skriver inn passordet, vil dere merke at det ikke kommer opp noe "***". Dette er normalt, bare skriv passordet som vanlig.
 
@@ -861,4 +862,14 @@ Dette vil bli lastet ned lokalt på PC-en din, velg en filplassering dere vil hu
 4. Velg alle bildene og sett "label" til å være "elsys", husk å kun bruke små bokstaver!
 5. Når alle bildene har fått en etikett, gå til "Train" og vent til denne har nådd 100%.
 6. Dere kan nå eksportere og overføre mappen til Raspberry Pi-en, akkurat som dere gjorde forrige gang.
+
+## Kuleste bil??
+Dere vil nå være nesten klare for å konkurrere og teste bilene deres ut i banen. Alt som mangler nå er litt ✨dekorasjon✨. Dere skal bruke det dere kan finne av papp, maling eller kanskje til og med elektroniske komponenter for å gjøre bilene helt deres. Følg et tema eller bare bruk kreativiteten. Det er 4 konkurranser dere kan vinne:
+
+1) Raskeste bil
+2) Smarteste bil
+3) Fan favorite
+4) Kuleste ekstrafunkjon
+
+Om dere har tid og vil utforske litt så kan dere se inn i elsys kofferten. Der skal det ligge alle mulige komponenter slik som servo motorer, ekstra led lys, høytaler ol. Spør en studentassitent eller søk på nett for hvodan man kobler de opp, kanskje dere får den kuleste bilen?
 
