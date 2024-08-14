@@ -210,7 +210,7 @@ For å koble sammen Raspberry Pi og Arduino Uno, må dere merke deg at nummeret 
 | A3      | GPIO 6       |
 | A2      | GPIO 13      |
 | A1      | GPIO 19      |
-| A0      | GPIO 6      |
+| A0      | GPIO 26      |
 
 
 
