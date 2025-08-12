@@ -1,6 +1,6 @@
 # Teknostart - elektronisk systemdesign og innovasjon
 
-I denne teknostarten skal dere, i en gruppe, lage en fjernstyrt bil. Dere skal få jobbe med Raspberry Pi, Arduino Uno og maskinlæringsverktøyet LOBE. Det er ikke forventet at dere skal kunne noe om dette fra før eller vite hva det er; teknostart vil fungere som en introduksjon til dette. Dere skal også bygge bilen, koble den opp, og få alt til å fungere sammen. Det vanker også premie for den vakreste/kuleste bilen, så bruk kreativiteten, maling og tusjer til å skreddersy bilen slik dere ønsker.
+I denne teknostarten skal dere, i en gruppe, lage en fjernstyrt bil. Dere skal få jobbe med Raspberry Pi, Arduino Uno og maskinlæringsverktøyet teachableMachine. Det er ikke forventet at dere skal kunne noe om dette fra før eller vite hva det er; teknostart vil fungere som en introduksjon til dette. Dere skal også bygge bilen, koble den opp, og få alt til å fungere sammen. Det vanker også premie for den vakreste/kuleste bilen, så bruk kreativiteten, maling og tusjer til å skreddersy bilen slik dere ønsker.
 
 Dere bør dele dere opp og jobbe på hver deres del. Dere har god tid på oppgaven, så det går fint å jobbe i par og ta seg tid til å prøve å forstå eller finne ut mer om noe dersom dere synes det er interessant. En viktig del av teknostart er å samarbeide godt og fordele arbeidsoppgaver. Vi foreslår at dere fordeler dere på disse hovedoppgavene:
 
@@ -743,41 +743,30 @@ Det er tre slike kommentarer som må fjernes. Dere må nå finne de to andre og 
 4. Nå kan dere prøve å sette en annen frekvens eller duty cycle for buzzeren.
 
 
-## Lobe
+## TeachableMachine
 
 Lag deres egen modell for objektgjenkjenning. Det vi kaller "object detection", eller objektgjenkjenning, er en teknikk en datamaskin bruker for å lokalisere objekter i bilder eller videoer. Vi mennesker gjenkjenner raskt ulike objekter i bilder og videoer, og skiller dem fra hverandre i løpet av millisekunder. Målet med "object detection" er å kunne gjenskape denne egenskapen i en datamaskin. For å oppnå dette er det ofte brukt machine learning, som innebærer at maskinen lærer seg selv opp.
 
-For å slippe å skrive egen kode for dette skal vi benytte et open-source program kalt LOBE. I dette programmet kan man legge inn bilder av de objektene man ønsker at maskinen/programmet skal kunne kjenne igjen, og sette merkelapp på dem. Disse bildene vil så LOBE bruke til å trene opp en modell (type program), til den klarer å kjenne igjen alle objektene den har merkelapp til. Denne modellen, i form av en mappe, legger vi inn på vår RPi, og dere vil ha en egenlaget og fungerende gjenkjenningsmodell når dere kjører bilen!
+For å slippe å skrive egen kode for dette skal vi benytte et open-source program kalt teachableMachine. I dette programmet kan man legge inn bilder av de objektene man ønsker at maskinen/programmet skal kunne kjenne igjen, og sette merkelapp på dem. Disse bildene vil så programet bruke til å trene opp en modell (type program), til den klarer å kjenne igjen alle objektene den har merkelapp til. Denne modellen, i form av en mappe, legger vi inn på vår RPi, og dere vil ha en egenlaget og fungerende gjenkjenningsmodell når dere kjører bilen!
 
 Skulle dere bli usikre så kan dere finne bilder inne på [Media/Lobe](https://github.com/PeterhdPham/teknobil2023/tree/main/Media/Lobe)
 
-###	Last ned lobe og tren deres første modell
--	Last ned [lobe](https://www.lobe.ai/) 
+###	Åpne program og tren deres første modell!
+-	[Media/teachableMachine](https://teachablemachine.withgoogle.com/train/image)
 
-Når dere har lastet ned, kan dere åpne programmet og starte et "New Project".
+Importer nedlastet mappe [dataset](https://github.com/PeterhdPham/teknobil2023/tree/main/dataset) fra GitHub-repositoriet og importer dette inn i TeachableMachine. Dere kan laste ned ved å trykke på den grønne knappen med "<> Code" og videre download zip. Velg navn på kalassene ti de tilhørende bildene og når dere har importert bildene ferdig, kan dere trykke på "Train" for å se programmet trene en AI-modell.
+
+Når modellen er ferdig trent og har 100 % prediksjon, gå til Export → TensorFlow Lite.
+Velg Quantized som Model conversion type før du laster ned. Dette formatet gjør modellen lettere å kjøre på Raspberry Pi og er det formatet koden i prosjektet er satt opp til å bruke.
+
+<img width="500" height="300" alt="Screenshot 2025-08-12 at 13 56 18" src="https://github.com/user-attachments/assets/993885c3-1953-4dbe-a439-51ab225e303f" />
 
 
-<p align="center">
-  <img src="Media/Lobe/newProject.png" height="350" />
-</p>
+Etter nedlasting:
+-Pakk ut ZIP-filen.
+-Gi mappen navnet Lobe. Denne brukes i koden for RPi-en, derfor er det viktig å gi denne mappen navnet «Lobe», og plassere denne et sted dere husker!
+-Overfør mappen til Raspberry Pi og plasser den i riktig katalog slik at den erstatter den eksisterende modellen.
 
-Importer nedlastet mappe [dataset](https://github.com/PeterhdPham/teknobil2023/tree/main/dataset) fra GitHub-repositoriet og importer dette inn i Lobe. Dere kan laste ned ved å trykke på den grønne knappen med "<> Code" og videre download zip. Når programmet spør hvordan dere ønsker å kategorisere bildene, velger dere "Label using folder name". Når dere har importert bildene ferdig, kan dere trykke på "Train" for å se programmet trene en AI-modell.
-
-Dersom den skulle slutte å trene før den har nådd "Correct 100%", kan dere trykke på det første bildet og korrigere den til riktig label.
-
-<p align="center">
-  <img src="Media\Lobe\keepTraining.png" height="300" />
-</p>
-
-Når modellen deres har en prediksjon på 100%, kan dere eksportere modellen deres via Use>Export>"TensorFlow Lite".
-
-<p align="center">
-  <img src="Media\Lobe\tensorFlowLite.png" height="300" />
-</p>
-
-Dere kan også velge å optimalisere den før den blir eksportert.
-
-Etter å ha eksportert den, må dere bytte navn på mappen til "Lobe". Denne brukes i koden for RPi-en, derfor er det viktig å gi denne mappen navnet «Lobe», og plassere denne et sted dere husker!
 
 ### Overfør modellen over til Raspberry pi 
 3.	For å få denne inn i mappestrukturen til RPi-en deres slik at modellen deres faktisk blir brukt, må den erstatte den modellen som allerede ligger inne. Derfor er det nødvendig å laste ned et skrivebordsprogram som lar deg overføre filer og mapper mellom to maskiner, her egen PC og RPi.
