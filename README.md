@@ -565,7 +565,7 @@ Slik går dere frem for å sette opp SD-kortet:
       - Password: "123", eller noe annet dere lett kan huske
    3. Configure wireless LAN
       - Dere bruker her en bestemt nettverksruter. SSID og Passord for nettverksruteren vil bli lagt ut på Blackboard.
-      - Alternativ dersom det ikke virker med nettverksruter: Delt nett fra mobilene deres. Vi anbefaler at man bruker en Android-telefon. SSID og Passord må være identisk med det nettverket dere deler fra den valgte mobilen.
+      - Alternativ dersom det ikke virker med nettverksruter: Delt nett fra mobilene deres. Vi anbefaler at man bruker en Android-telefon. SSID og Passord må være identisk med det nettverket dere deler fra den valgte mobilen. Det er også lurt at navnet til mobilen er skrevet i ett ord, som "KariPhone" istedenfor "Kari's iPhone".
       - Skriv korrekt! Om ikke må man kanskje sette oppe alt på nytt igjen.
    4. Enable Set locale settings:
       - Time zone: Europe/Oslo
