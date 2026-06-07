@@ -21,7 +21,7 @@ Dere bør dele dere opp og jobbe på hver deres del. Dere har god tid på oppgav
   - [Hastighet](#hastighet)
   - [led](#led)
   - [Tutehorn](#tutehorn)
-  - [Lobe](#lobe)
+  - [TeachableMachine](#TeachableMachine)
 ****
 
 # Introduksjon til komponentene
@@ -609,12 +609,27 @@ bytt ut <hostname> med det dere satte i Raspberry Pi imager F.eks:
 Når den spør om dere ønsker å koble til, skriv “yes” og trykk enter.
 
 Om dere ikke får koblet til så se på feilsøkingstipsene nedenfor:
-* Prøv å bruke IPv4-addressen til PIen istedenfor ```<hostname>.local```. Den finner dere vanligvis i nettverksdelingsinnstillingene på mobilen og har på formatet ```<xxx.xxx.xxx.xxx>```, hvor x er tall. Kommandoen blir da f.eks. ```ssh pi@192.168.195.162```.
-* Det kan ta litt tid før Pi-en starter, så om den ikke finner Pi-en med en gang, vent noen minutter og prøv igjen. Dere kan også trykke piltast opp på tastaturet for å bruke den siste kommandoen dere brukte.
-* Dobbeltsjekk også at det delte nettet opererer på 2.4GHz.
-* Hvis dere har koblet dere av internettet og på et annet en eller annen gang i løpet av dagen så kan det hende programet ikke gjenkjenner igjen ip-adressen. Ta å skriv på SD kortet igjen, men denne gangen endre brukernavnet til noe annet enn gruppenavnet. Brukernavnene kan dermed ikke være den samme som noen nadre som er brukt før.
+Prøv å bruke IPv4-adressen til Pi-en i stedet for <hostname>.local. Den finner dere vanligvis i nettverksdelingsinnstillingene på mobilen og har formatet <xxx.xxx.xxx.xxx>, hvor x er tall. Kommandoen blir da f.eks.:
 
-Når dere skriver inn passordet, vil dere merke at det ikke kommer opp noe "***". Dette er normalt, bare skriv passordet som vanlig.
+```bash 
+ssh pi@192.168.195.162
+```
+
+Det kan ta litt tid før Pi-en starter, så om den ikke finner Pi-en med en gang, vent noen minutter og prøv igjen. Dere kan også trykke piltast opp på tastaturet for å bruke den siste kommandoen dere skrev.
+
+Dobbeltsjekk at det delte nettet opererer på 2.4 GHz, ikke bare 5 GHz.
+
+Hvis dere har koblet dere av internett og på et annet nett i løpet av dagen, kan det hende at programmet ikke gjenkjenner IP-adressen. Skriv konfigurasjonsfilen til SD-kortet på nytt, men denne gangen endre brukernavnet til noe annet enn gruppenavnet. Brukernavn kan ikke være det samme som noen andres.
+
+Flere ting å prøve:
+
+-Bruk kablet Ethernet, dette gir ofte mer stabil tilkobling enn Wi-Fi.
+
+-Sjekk at Pi-en faktisk kjører, da skal LED-lysene blinke.
+
+-Finn IP-adressen med nmap (krever at du vet subnettet ditt):
+
+Når dere skriver inn passordet, vil dere merke at det ikke kommer opp noe “***”. Dette er normalt – bare skriv passordet som vanlig.
 
 Dere vil få opp noe liknende dette:
 ![SSH into Raspberry Pi](Media/rpi/03SSH.png)
@@ -743,7 +758,7 @@ Det er tre slike kommentarer som må fjernes. Dere må nå finne de to andre og 
 4. Nå kan dere prøve å sette en annen frekvens eller duty cycle for buzzeren.
 
 
-## TeachableMachine
+# TeachableMachine
 
 Lag deres egen modell for objektgjenkjenning. Det vi kaller "object detection", eller objektgjenkjenning, er en teknikk en datamaskin bruker for å lokalisere objekter i bilder eller videoer. Vi mennesker gjenkjenner raskt ulike objekter i bilder og videoer, og skiller dem fra hverandre i løpet av millisekunder. Målet med "object detection" er å kunne gjenskape denne egenskapen i en datamaskin. For å oppnå dette er det ofte brukt machine learning, som innebærer at maskinen lærer seg selv opp.
 
