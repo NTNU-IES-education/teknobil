@@ -342,11 +342,15 @@ Utstyr:
 
 Oppsett:
 1. Koble Arduino-kortet til PCen din med en USB-C kabel
-2. Sørg for at programvaren er satt opp for riktig type Arduino-kort, i dette tilfellet Arduino Uno R4 (programvaren spør dere om å laste ned den nødvendige ekstrapakken)
-    * Gå inn på «Verktøy»/«Tools»
+2. Sørg for at programvaren er satt opp for riktig type Arduino-kort, i dette tilfellet Arduino Uno R4 Wifi
+    * Gå inn på «Verktøy» eller «Tools»
     * Velg riktig kort og port (porten refererer til hvilken inngang/utgang dere bruker på PCen. Det kan oppstå en feilmelding hvis feil port er valgt)
 
 ![Arduino](Media/arduino/01toolssetup.png)
+
+Hvis dere ikke kan velge riktig kort, så må dere laste ned en liten pakke. Naviger til "Boards Manager" (ikonet på venstre side meny som vist i bilde), søk opp "Arduino Uno R4", og trykk install "Arduino UNO R4 Boards".
+
+![Arduino Boards](Media/arduino/01.5BoardManager.png)
 
 3. Erstatt deretter den eksisterende teksten med koden under:
 
@@ -547,16 +551,26 @@ Utstyr:
 
 SD-kortene dere har fått utdelt inneholder ingen informasjon dere kan bruke. Derfor må dere starte med å laste opp et OS til dette kortet. RPi bruker ikke Windows eller MacOS, men et operativsystem som ofte kalles Rasbian/Debian, som er en versjon av Linux. For å kunne laste opp dette OS-et til kortet kreves et eget skriveprogram som heter Raspberry Pi Imager.
 
+Dette prosjektet har også noen flere begrensninger på hvilken spesifikk versjon av Rasbian og Raspberry Pi Imager vi kan bruke. Infrastrukturen til prosjektet ble designet i 2023, og ble dermed designet med hensyn til den versjonen av Rasbian som var tilgjengelig da. Så dere må laste opp den spesifikke versjonen (som beskrevet under), og for å gjøre livet deres lettere, så må dere laste ned en litt eldre versjon av Raspberry Pi Imager.
+
 Slik går dere frem for å sette opp SD-kortet:
 
-1. Last ned Raspberry Pi Imager ([lenke](https://www.raspberrypi.com/software/))
-2. Sett inn SD-kortet inn i SD-kortleseren
-3. Åpne Raspberry Pi Imager
-4. Klikk på "CHOOSE DEVICE" og velg "Raspberry Pi 3"
-5. Klikk på "CHOOSE OS" og velg: "Raspberry Pi OS (Legacy, 32-bit)"
-6. Deretter "CHOOSE STORAGE", og velg det SD-kortet dere satte inn. Menyen skal se omtrent slik ut etter dette:
+1. Last ned Raspberry Pi Imager ([lenke](https://github.com/raspberrypi/rpi-imager/releases)).
+    1. Bla til dere finner versjon 1.9.6
+    2. Klikk på "Assets" (se rød firkant på bilde under)
+    3. Velg den filen som tilsvarer ditt operativsystem (.exe for Windows, .dmg for Mac, anbefaler appImage for Linux)
+   ![Raspberry Pi Imager Download](Media/rpi/00Pi-imager-download.png)
+2. Last ned den versjonen av OS-et vi skal ha ([lenke](https://downloads.raspberrypi.com/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2025-05-07/))
+    1. Velg den filen som ender i .xz
+    2. .xz er et fil format for komprimerte filer, akkurat som .zip filer. Så for å få bruk for filen, så må dere pakke den ut. Prøv å søke opp hvordan og se om dere klarer det selv, hvis ikke spør nærmeste studass om hjelp.
+3. Sett inn SD-kortet inn i SD-kortleseren
+4. Åpne Raspberry Pi Imager og trykk nei på å bruke nyere versjon
+5. Klikk på "CHOOSE DEVICE" og velg "Raspberry Pi 3"
+6. Klikk på "CHOOSE OS" og bla ned til dere kan velge "Use custom"
+    1. Naviger til .img filen dere pakket ut i steg 2 og velg den
+7. Deretter "CHOOSE STORAGE", og velg det SD-kortet dere satte inn. Menyen skal se omtrent slik ut etter dette:
    ![Raspberry Pi Imager](Media/rpi/01Pi-imager.png)
-7. Trykk deretter på "NEXT" og det skal komme et "Use OS customization" sprettoppvindu. Velg så "EDIT SETTINGS" og sett opp følgende innstillinger:
+8. Trykk deretter på "NEXT" og det skal komme et "Use OS customization" sprettoppvindu. Velg så "EDIT SETTINGS" og sett opp følgende innstillinger:
 
    1. Sett hostname til «elsys"gruppenummer"», eksempel: elsys14
    2. Set username and password
@@ -575,8 +589,8 @@ Slik går dere frem for å sette opp SD-kortet:
 
    ![Raspberry Pi Imager settings](Media/rpi/02settings.png) | ![Raspberry Pi Imager settings](Media/rpi/02settingssh.png)
 
-7. Lagre innstillingene med "SAVE", og trykk på "YES" i sprettoppvinduet fra tidligere og deretter "YES" i den påfølgende advarselen. Deretter begynner skrivingen, som kan ta litt tid.
-8. Når SD-kortet er ferdig skrevet vil dere få en beskjed om at det er trygt å ta det ut av maskinen. Ta det ut, og sett inn i Pi-en.
+9. Lagre innstillingene med "SAVE", og trykk på "YES" i sprettoppvinduet fra tidligere og deretter "YES" i den påfølgende advarselen. Deretter begynner skrivingen, som kan ta litt tid.
+10. Når SD-kortet er ferdig skrevet vil dere få en beskjed om at det er trygt å ta det ut av maskinen. Ta det ut, og sett inn i Pi-en.
 
 
 ### Sette opp Raspberry Pi headless
@@ -611,6 +625,7 @@ Om dere ikke får koblet til så se på feilsøkingstipsene nedenfor:
 * Prøv å bruke IPv4-addressen til PIen istedenfor ```<hostname>.local```. Den finner dere vanligvis i nettverksdelingsinnstillingene på mobilen og har på formatet ```<xxx.xxx.xxx.xxx>```, hvor x er tall. Kommandoen blir da f.eks. ```ssh pi@192.168.195.162```.
 * Det kan ta litt tid før Pi-en starter, så om den ikke finner Pi-en med en gang, vent noen minutter og prøv igjen. Dere kan også trykke piltast opp på tastaturet for å bruke den siste kommandoen dere brukte.
 * Dobbeltsjekk også at det delte nettet opererer på 2.4GHz.
+* Hvis dere bruker iPhone, gå inn i "settings"->"personal hotspot", og skru på "maximise compatibility".
 * Hvis dere har koblet dere av internettet og på et annet en eller annen gang i løpet av dagen så kan det hende programet ikke gjenkjenner igjen ip-adressen. Ta å skriv på SD kortet igjen, men denne gangen endre brukernavnet til noe annet enn gruppenavnet. Brukernavnene kan dermed ikke være den samme som noen nadre som er brukt før.
 
 Når dere skriver inn passordet, vil dere merke at det ikke kommer opp noe "***". Dette er normalt, bare skriv passordet som vanlig.
@@ -630,14 +645,22 @@ Tips til å skrive i terminalen:
 Aktiver kameraet på RPI-en med kommandoen:
 
 ```bash
-sudo raspi-config noint do_legacy 0
+sudo raspi-config
 ```
+
+Det vil dukke opp en liten meny. For å navigere trykker dere "Tab" for å skifte hvilket alternativ dere er på, og "Spacebar" for å velge det alternativet.
+
+Naviger nå til "Interface options" og trykk "Space". Deretter naviger til "Enable legacy camera" og trykk "Space". Nå burde det ha kommet opp en prompt som spør noe med ordlyden "Do you want to enable legacy camera". Velg "Yes" for å enable.
+
+Etter dette er gjort naviger tilbake igjen til første menyen dere startet på, og deretter til knappen som heter "Finish". Etter at dere har valgt finish burde det dukke opp en prompt som spør om dere har lyst til å reboote systemet. Velg "Yes".
+
+Nå burde Pi-en starte å reboote, som betyr at dere vil miste tilgang til den. Etter ca. 1 minutt burde Pi-en være klar igjen, så det er bare å SSH inn igjen på Pi-en.
+
 Start deretter PIen på nytt med kommandoen: 
-```bash
-sudo reboot now
-```
+
+
 #### Få inn riktig programvare
-Viktig å bemerke at alle kommandoer dere kjører skjer i mappen dere kjører dem i. Så dere kan ikke kjøre et program uten å være i samme mappe som programmet. Dette gjelder ikke kommandoer med apt eller pip, siden disse gjør endringer i hele systemet og ikke kun lokalt i nåværende mappe.
+Viktig å bemerke at alle kommandoer dere kjører skjer i mappen dere kjører dem i. Så dere kan ikke kjøre et program (som "runCode.py) uten å være i samme mappe som programmet. Dette gjelder ikke kommandoer med apt eller pip, siden disse gjør endringer i hele systemet og ikke kun lokalt i nåværende mappe.
 
 1. Dere kan nå oppdatere og oppgradere med kommandoene
 
