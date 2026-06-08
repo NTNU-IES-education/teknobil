@@ -87,7 +87,7 @@ Følg trinnene nedenfor nøye for å montere Teknobilen . Alle bilder nevnt i ve
 
 ### Steg 1: Montering av motorer
 
-Start med å feste motorene til følgende plater med de 25 mm lange M3 skruene. 
+Start med å feste motorene til følgende plater med de 25 mm lange M3 skruene. Ledningene på motorene skal tres igjennom de store firkantede hullene. 
 (NB! Ettersom vi ikke benytter muttere vær oppmerksom på ikke å stramme skruene for hardt).
 
 <p align="center">
@@ -331,9 +331,8 @@ Arduino er en open-source elektronikkplattform basert på brukervennlig hardware
 ### Skaff Arduino Software til egen PC
 
 Last ned Arduino IDE
-* [Windows](https://docs.arduino.cc/software/ide-v1/tutorials/Windows#download-the-arduino-software-ide)
-* [MacOS](https://docs.arduino.cc/software/ide-v1/tutorials/macOS?_gl=1*17wzpvg*_ga*MTY2NjU1MjEzOC4xNjI5OTYzMDk1*_ga_NEXN8H46L5*MTY1NTIwNjQyMy4zMy4xLjE2NTUyMDk1MTcuNjA.)
-* [Linux](https://docs.arduino.cc/software/ide-v1/tutorials/Linux?_gl=1*xpugwf*_ga*MTY2NjU1MjEzOC4xNjI5OTYzMDk1*_ga_NEXN8H46L5*MTY1NTIwNjQyMy4zMy4xLjE2NTUyMDk1NDcuMzA.)
+* [Guide på hvordan å laste ned for Windows, Mac, og Linux](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing/)
+
 
 ### Last inn koden til Arduinoen
 Utstyr:
@@ -623,9 +622,9 @@ Gratulerer, dere har nå logget på Raspberry Pi via SSH. Kommandoene dere nå s
 
 Tips til å skrive i terminalen:
 - Grunnleggende terminalkommandoer for navigering:
-  - **`cd <directory>`**: Bytter katalog. Denne kommandoen lar deg navigere mellom forskjellige kataloger (mapper) på datamaskinen din. For eksempel, `cd Documents` vil navigere til Documents-mappen fra din nåværende lokasjon.
-  - **`ls`**: List opp innholdet i den nåværende katalogen. Denne kommandoen viser alle filer og mapper i den nåværende katalogen.
-  - **`cd ..`**: Gå opp ett nivå i katalogstrukturen. Dette tar deg tilbake til mappen som inneholder den nåværende mappen.
+  - **`cd <directory>`**: Bytter katalog. Denne kommandoen lar deg navigere mellom forskjellige mapper på datamaskinen din. For eksempel, `cd Documents` vil navigere til Documents-mappen fra din nåværende lokasjon.
+  - **`ls`**: List opp innholdet i den nåværende mappen. Denne kommandoen viser alle filer og mapper i den nåværende mappen, hvor mapper vil dukke opp i blått.
+  - **`cd ..`**: Gå opp ett nivå i mappestrukturen. Dette tar deg tilbake til mappen som inneholder den nåværende mappen.
 
 #### Enable camera
 Aktiver kameraet på RPI-en med kommandoen:
@@ -638,6 +637,7 @@ Start deretter PIen på nytt med kommandoen:
 sudo reboot now
 ```
 #### Få inn riktig programvare
+Viktig å bemerke at alle kommandoer dere kjører skjer i mappen dere kjører dem i. Så dere kan ikke kjøre et program uten å være i samme mappe som programmet. Dette gjelder ikke kommandoer med apt eller pip, siden disse gjør endringer i hele systemet og ikke kun lokalt i nåværende mappe.
 
 1. Dere kan nå oppdatere og oppgradere med kommandoene
 
