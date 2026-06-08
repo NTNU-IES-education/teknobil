@@ -569,7 +569,7 @@ Slik går dere frem for å sette opp SD-kortet:
 6. Klikk på "CHOOSE OS" og bla ned til dere kan velge "Use custom"
     1. Naviger til .img filen dere pakket ut i steg 2 og velg den
 7. Deretter "CHOOSE STORAGE", og velg det SD-kortet dere satte inn. Menyen skal se omtrent slik ut etter dette:
-   ![Raspberry Pi Imager](Media/rpi/01Pi-imager.png)
+   ![Raspberry Pi Imager](Media/rpi/01-Pi-imager-ny.png)
 8. Trykk deretter på "NEXT" og det skal komme et "Use OS customization" sprettoppvindu. Velg så "EDIT SETTINGS" og sett opp følgende innstillinger:
 
    1. Sett hostname til «elsys"gruppenummer"», eksempel: elsys14
