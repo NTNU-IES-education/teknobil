@@ -794,7 +794,7 @@ Etter nedlasting:
 ### Overfør modellen over til Raspberry pi 
 3.	For å få denne inn i mappestrukturen til RPi-en deres slik at modellen deres faktisk blir brukt, må den erstatte den modellen som allerede ligger inne. Derfor er det nødvendig å laste ned et skrivebordsprogram som lar deg overføre filer og mapper mellom to maskiner, her egen PC og RPi.
 
-    1.	Last ned [FileZilla](https://filezilla-project.org/)
+    1.	Last ned [FileZilla](https://filezilla-project.org/) (client)
     2.	Åpne programmet når nedlastningen er ferdig
     3.	Fyll inn Vert (Hostname), brukernavn, passordet til RPi-en deres og port: 22 for å få en tilkobling. Det vil da komme opp mappestrukturen til RPi-en på venstre side av programvinduet
 
