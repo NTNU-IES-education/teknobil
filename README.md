@@ -300,7 +300,10 @@ Batterikontaktoren til spenningsregulatoren kobles opp som vist under. Pass på 
 
 Når alt er koblet opp, kan dere få bilen deres kontrollert av en studass. Hvis alt er korrekt, kan dere få utlevert et batteri som skal skyves inn mellom motorene før dere fester bakplaten.
 
-**NB: Her er det to viktige ting å være oppmerksom på. Pass på at skruene som holder kretskortene på plass ikke er skrudd så stramt at batteriet tar skade når det skyves inn i bilen. Det er også viktig å være forsiktig så man ikke skrur dem inn i batteriet senere, ellers kan batteriet begynne å brenne. Sørg for at bryteren er satt til 5 V på spenningsregulatoren før dere skrur den på.**
+**NB: Her er det tre viktige ting å være oppmerksom på.** 
+- **Pass på at skruene som holder kretskortene på plass ikke er skrudd så stramt at batteriet tar skade når det skyves inn i bilen. Det er også viktig å være forsiktig så man ikke skrur dem inn i batteriet senere, ellers kan batteriet begynne å brenne.**
+- **Sørg for at bryteren er satt til 5 V på spenningsregulatoren før dere skrur den på.**
+- **Ikke la batteriet være koblet opp i løpet av natten**
 
 <p align="center">
   <img src="Media\teknobil\11.png
@@ -579,7 +582,7 @@ Slik går dere frem for å sette opp SD-kortet:
       - Password: "123", eller noe annet dere lett kan huske
    3. Configure wireless LAN
       - Dere bruker her en bestemt nettverksruter. SSID og Passord for nettverksruteren vil bli lagt ut på Blackboard.
-      - Alternativ dersom det ikke virker med nettverksruter: Delt nett fra mobilene deres. Vi anbefaler at man bruker en Android-telefon. SSID og Passord må være identisk med det nettverket dere deler fra den valgte mobilen. Det er også lurt at navnet til mobilen er skrevet i ett ord, som "KariPhone" istedenfor "Kari's iPhone".
+      - Alternativ dersom det ikke virker med nettverksruter: Delt nett fra mobilene deres. Vi anbefaler at man bruker en Android-telefon. SSID og Passord må være identisk med det nettverket dere deler fra den valgte mobilen. Det er også lurt at navnet til mobilen er skrevet i ett ord, som "KariPhone" istedenfor "Kari's iPhone". Og ikke bruk spesielle karakterer.
       - Skriv korrekt! Om ikke må man kanskje sette opp alt på nytt igjen.
    4. Enable Set locale settings:
       - Time zone: Europe/Oslo
@@ -888,3 +891,4 @@ Dere vil nå være nesten klare for å konkurrere og teste bilene deres ut i ban
 
 Om dere har tid og vil utforske litt så kan dere se inn i elsys kofferten. Der skal det ligge alle mulige komponenter slik som servo motorer, ekstra led lys, høytaler ol. Spør en studentass eller søk på nett for hvordan man kobler de opp, kanskje dere får den kuleste bilen?
 
+Det er en mulighet å endre ting i selve Raspberry Pi koden, men det er ikke anbefalt. Fra tidligere erfaring slutter ting å fungere og studentassistentene kan ikke nødvendigvis løse det. Hvis dere likevel ønsker å gjøre det, vær forberedt på å måtte gå tilbake til den originale koden!
