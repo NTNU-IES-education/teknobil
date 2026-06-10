@@ -1,17 +1,16 @@
 # Teknostart - elektronisk systemdesign og innovasjon
 
-I løpet av Teknostart skal dere, i en gruppe, lage en fjernstyrt bil. Dere skal få jobbe med Raspberry Pi, Arduino Uno og maskinlæringsverktøyet teachableMachine. Det er ikke forventet at dere kan noe om dette fra før. Dere skal koble opp elektronikken, bygge bilen og få alt til å fungere sammen. 
+Velkommen til Elsys! For å varme dere opp til studiet har vi laget et prosjekt der dere skal bygge og kjøre deres egen fjernstyrte bil. Underveis får dere prøve dere på Raspberry Pi, Arduino og maskinlæringsverktøyet teachableMachine. Kanskje dette er kjent for noen av dere, og helt nytt for andre. Det er helt greit. Vi forventer bare at dere er nysgjerrig og gira for å komme i gang:) Lykke til!
 
 Det vanker også premie for den vakreste/kuleste bilen, så bruk kreativiteten, maling og tusjer til å skreddersy bilen slik dere ønsker.
 
-Del dere opp og jobb parallelt på de ulike delene. Dere har god tid, så bruk den gjerne på å utforske og prøve dere fram. 
-<!-- Skeptisk til dette. De har jo ikke lest gjennom instruksene ennå. -->
-Vi foreslår at dere fordeler dere på disse hovedoppgavene:
+Del dere opp og jobb parallelt på de ulike delene. Dere har god tid, så bruk den gjerne på å utforske og prøve dere fram. Vi foreslår at dere fordeler dere på disse hovedoppgavene:
 
-1.	Raspberry Pi: Her er det viktig å holde tungen rett i munnen og følge oppskriften nøye.  
-2.	Arduino Uno med motordriver 
-3.	Til slutt kan dere samarbeide om å koble alt sammen og få bilen til å fungere. 
-4.	Når bilen fungerer kan dere gå videre med utvidelsesoppgavene og/eller skreddersy estetikken slik dere ønsker.
+1.	[Raspberry Pi](#sette-opp-sd-kortet): Her er det viktig å holde tungen rett i munnen og følge instruksjonene nøye.  
+2.	[Arduino](#Arduino)
+3.  Steg 1 - 5
+
+Til slutt kan dere samarbeide om å koble alt sammen og få bilen til å fungere. Når bilen fungerer kan dere gå videre med utvidelsesoppgavene og/eller skreddersy estetikken slik dere ønsker.
 
 Står dere fast? Spør studassene om hjelp! Vi er her for å hjelpe dere, og kanskje føle oss litt smarte underveis:)
 
