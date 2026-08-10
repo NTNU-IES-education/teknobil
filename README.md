@@ -1,6 +1,6 @@
 # Teknostart - elektronisk systemdesign og innovasjon
 
-Velkommen til Elsys! For å varme dere opp til studiet har vi laget et prosjekt der dere skal bygge og kjøre deres egen fjernstyrte bil. Underveis får dere prøve dere på Raspberry Pi, Arduino og maskinlæringsverktøyet teachableMachine. Kanskje dette er kjent for noen av dere, og helt nytt for andre. Det er helt greit. Vi forventer bare at dere er nysgjerrig og gira for å komme i gang:) Lykke til!
+Velkommen til Elsys! For å varme dere opp til studiene har vi laget et lite intro-prosjekt til dere. Under prosjektet skal dere bygge og kjøre deres egen fjernstyrte bil. Underveis får dere prøve dere på Raspberry Pi og Arduino. Kanskje dette er kjent for noen av dere, og helt nytt for andre. Det er helt greit. Vi forventer bare at dere er nysgjerrig og gira for å komme i gang:) Lykke til!
 
 Det vanker også premie for den vakreste/kuleste bilen, så bruk kreativiteten, maling og tusjer til å skreddersy bilen slik dere ønsker.
 
@@ -770,115 +770,9 @@ Det er tre slike kommentarer som må fjernes. Dere må nå finne de to andre og 
 3. Når dere har fjernet alle tre kommentarene, lukk Nano ved å trykke Ctrl+X, deretter Y for å lagre og så Enter. Nå kan dere kjøre koden på nytt og kjøre rundt som før. Når dere trykker Space, skal buzzeren spille av en vakker lyd.
 4. Nå kan dere prøve å sette en annen frekvens eller duty cycle for buzzeren.
 
-
-## TeachableMachine
-
-Lag deres egen modell for objektgjenkjenning. Det vi kaller "object detection", eller objektgjenkjenning, er en teknikk en datamaskin bruker for å lokalisere objekter i bilder eller videoer. Vi mennesker gjenkjenner raskt ulike objekter i bilder og videoer, og skiller dem fra hverandre i løpet av millisekunder. Målet med "object detection" er å kunne gjenskape denne egenskapen i en datamaskin. For å oppnå dette er det ofte brukt machine learning, som innebærer at maskinen lærer seg selv opp.
-
-For å slippe å skrive egen kode for dette skal dere benytte et open-source program kalt teachableMachine. I dette programmet kan man legge inn bilder av de objektene man ønsker at maskinen/programmet skal kunne kjenne igjen, og sette merkelapp på dem. Disse bildene vil så programet bruke til å trene opp en modell (type program), til den klarer å kjenne igjen alle objektene den har merkelapp til. Denne modellen, i form av en mappe, legger dere inn på vår RPi, og dere vil ha en egenlaget og fungerende gjenkjenningsmodell når dere kjører bilen!
-
-Skulle dere bli usikre så kan dere finne bilder inne på [Media/Lobe](https://github.com/PeterhdPham/teknobil2023/tree/main/Media/Lobe)
-
-###	Åpne program og tren deres første modell!
--	[Media/teachableMachine](https://teachablemachine.withgoogle.com/train/image)
-
-Importer nedlastet mappe [dataset](https://github.com/PeterhdPham/teknobil2023/tree/main/dataset) fra GitHub-repositoriet og importer dette inn i TeachableMachine. Dere kan laste ned ved å trykke på den grønne knappen med "<> Code" og videre download zip. Velg navn på klassene til de tilhørende bildene og når dere har importert bildene ferdig, kan dere trykke på "Train" for å se programmet trene en AI-modell.
-
-Når modellen er ferdig trent og har 100 % prediksjon, gå til Export → TensorFlow Lite.
-Velg Quantized som Model conversion type før du laster ned. Dette formatet gjør modellen lettere å kjøre på Raspberry Pi og er det formatet koden i prosjektet er satt opp til å bruke.
-
-<img width="500" height="300" alt="Screenshot 2025-08-12 at 13 56 18" src="https://github.com/user-attachments/assets/993885c3-1953-4dbe-a439-51ab225e303f" />
-
-
-Etter nedlasting:
--Pakk ut ZIP-filen.
--Gi mappen navnet Lobe. Denne brukes i koden for RPi-en, derfor er det viktig å gi denne mappen navnet «Lobe», og plassere denne et sted dere husker!
--Overfør mappen til Raspberry Pi og plasser den i riktig katalog slik at den erstatter den eksisterende modellen.
-
-
-### Overfør modellen over til Raspberry pi 
-3.	For å få denne inn i mappestrukturen til RPi-en deres slik at modellen deres faktisk blir brukt, må den erstatte den modellen som allerede ligger inne. Derfor er det nødvendig å laste ned et skrivebordsprogram som lar deg overføre filer og mapper mellom to maskiner, her egen PC og RPi.
-
-    1.	Last ned [FileZilla](https://filezilla-project.org/) (client)
-    2.	Åpne programmet når nedlastningen er ferdig
-    3.	Fyll inn Vert (Hostname), brukernavn, passordet til RPi-en deres og port: 22 for å få en tilkobling. Det vil da komme opp mappestrukturen til RPi-en på venstre side av programvinduet
-
-<p align="center">
-  <img src="Media\Lobe\filezilla.png" height="150" />
-</p>
-
-4.	Erstatt Lobe-mappen som ligger inne i mappen teknobil2023.
-
-<p align="center">
-  <img src="Media\Lobe\navtekno.png" height="300" />
-</p>
-
-Til høyre har dere mappestrukturen til Raspberry Pi, mens den til venstre er deres lokale PCs mappestruktur.
-
-<p align="center">
-  <img src="Media\Lobe\deletelobe.png" height="300" />
-</p>
-
-
-Når dere kjører «runCode.py» fra RPi-en nå, vil den ta i bruk deres egen "object detection"!
-
-### Utvid modellen med deres egne bilder
-Fram til nå har vi ledet dere gjennom hele prosessen, men nå er det deres tur til å gjøre noe selvstendig (nesten)
-
-
-### Last ned riktig programvare for å kunne ta bilder med RPi
-Bildene som skal brukes til å lage denne modellen skal tas med RPi, og for å få lagret disse lokalt på PC-en skal dere benytte en ny programvare som lastes ned på Raspberry Pi:
-
-```bash
-cd
-git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
-cd RPi_Cam_Web_Interface
-./install.sh
-```
-
-Under nedlastingen vil dere få opp denne menyen:
-
-<p align='center'>
- <img src="Media/Lobe/x.jpg" height=300>
-
-Sørg for at alle parametere er like som på bildet over!
-
-### Ta bilder
-1.	Start programvaren med å skrive kommandoen 
-```bash
-./start.sh
-```
-
-2.	Åpne en ny fane i nettleseren og bruk IP-adressen til RPi-en din som nettstedsøk. Hvis dere ikke kjenner til IP-adressen fra før, kan dere finne den ved å bruke følgende kommando:
-
-```bash
-ifconfig
-```
-
-<img src="Media/Lobe/startnow.png" width=600>
-
-På stedet som er markert i rødt vil IP-adressen vises. Skriv IP-adressen sammen med "/html/", for eksempel (http://192.168.131.104/html/).
-
-
-4.	Innenfor "camera settings" > "Annotation", kan dere fjerne annotasjonen. Trykk på "record image" for å ta bilder. Dere kan også bruke "timelapse" for å slippe å ta bilder manuelt.
-
-Tips for å lage den best mulige gjenkjenningsmodellen:
-
--	Ta mange bilder av hvert objekt.
--	Ta gjerne bilder fra ulike vinkler.
--	Vurder å ta bilder med ulike bakgrunner/underlag.
-
-5.	For å laste ned, trykk på "Download Videos and Images" > "Select All" > "Get Zip".
-
-Dette vil bli lastet ned lokalt på PC-en din, velg en filplassering dere vil huske.
-
-### Oppdater gjenkjenningsmodellen
-1. Åpne Lobe.
-2. Velg det allerede eksisterende prosjektet.
-3. Importer de nye bildene dere nettopp tok.
-4. Velg alle bildene og sett "label" til å være "elsys", husk å kun bruke små bokstaver!
-5. Når alle bildene har fått en etikett, gå til "Train" og vent til denne har nådd 100%.
-6. Dere kan nå eksportere og overføre mappen til Raspberry Pi-en, akkurat som dere gjorde forrige gang.
+   LOBE 
+2022 - 2026
+Takk for alt
 
 ## Kuleste bil??
 Dere vil nå være nesten klare for å konkurrere og teste bilene deres ut i banen. Alt som mangler nå er litt ✨dekorasjon✨. Dere skal bruke det dere kan finne av papp, maling eller kanskje til og med elektroniske komponenter for å gjøre bilene helt deres. Følg et tema eller bare bruk kreativiteten. Det er 4 konkurranser dere kan vinne:
