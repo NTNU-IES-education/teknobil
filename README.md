@@ -565,7 +565,7 @@ Slik går dere frem for å sette opp SD-kortet:
    ![Raspberry Pi Imager Download](Media/rpi/00Pi-imager-download.png)
 2. Last ned den versjonen av OS-et dere skal ha ([lenke](https://downloads.raspberrypi.com/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2025-05-07/))
     1. Velg den filen som ender i .xz
-    2. .xz er et fil format for komprimerte filer, akkurat som .zip filer. Så for å få bruk for filen, så må dere pakke den ut. Prøv å søke opp hvordan og se om dere klarer det selv, hvis ikke spør nærmeste studass om hjelp.
+    2. .xz er et fil format for komprimerte filer, akkurat som .zip filer. Så for å få bruk for filen, så må dere pakke den ut. Det burde være nok å høyre trykke og velge "Extract here", men hvis det ikke funker prøv å søke opp hvordan og se om dere klarer det selv, hvis ikke spør nærmeste studass om hjelp.
 3. Sett SD-kortet inn i SD-kortleseren
 4. Åpne Raspberry Pi Imager og trykk nei på å bruke nyere versjon
 5. Klikk på "CHOOSE DEVICE" og velg "Raspberry Pi 3"
